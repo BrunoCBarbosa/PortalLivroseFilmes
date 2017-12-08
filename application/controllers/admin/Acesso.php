@@ -41,10 +41,10 @@ class Acesso extends CI_Controller{
         $usuario = $this->acessomodel->logar($email,$senha);
         
         if(count($usuario) === 1){
-            $dados['cod_usuario'] = $usuario[0]->cod_usuario;
-            $dados['nome_usuario'] = $usuario[0]->nome_usuario;
+            $dados['codigo'] = $usuario[0]->codigo;
+            $dados['nome'] = $usuario[0]->nome;
             $dados['LOGADO'] = TRUE;
-            $dados['imagem_usuario'] = $usuario[0]->imagem_usuario;
+            $dados['foto'] = $usuario[0]->foto;
             
             $this->session->set_userdata($dados);
             redirect("admin/");
@@ -71,7 +71,7 @@ class Acesso extends CI_Controller{
         $str = '';
         if($alert == 1){
             $str = 'success - Login realizado com sucesso!';
-        }elseif($aler == 2){
+        }elseif($alert == 2){
             $str = 'danger - Não foi possível entrar. Verifique o email e a senha e tente novamente!';
         }else{
             $str = null;

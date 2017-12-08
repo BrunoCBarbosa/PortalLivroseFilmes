@@ -10,10 +10,10 @@
     <title>Acesso Administrativo</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url()?>dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../../../dist/css/signin.css" rel="stylesheet">
+    <link href="<?= base_url()?>dist/css/signin.css" rel="stylesheet">
   </head>
 
   <body>
@@ -37,7 +37,7 @@
         <label for="inputEmail" class="sr-only">Email</label>
         <input type="email" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
         <label for="inputPassword" class="sr-only">Senha</label>
-        <input type="password" id="passsword" name="password" class="form-control" placeholder="Senha" required>
+        <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Lembrar-me
