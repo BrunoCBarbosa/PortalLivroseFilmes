@@ -24,7 +24,7 @@
                     <li><a href="<?= base_url('admin/acesso/login') ?>">Entrar</a></li>
                 <?php } ?>
                     
-              <img src="../../../dist/img/avatar.png" alt="avatar" height="150" width="150"> 
+                    <img src="<?= base_url()?>dist/img/avatar.png" alt="avatar" height="150" width="150"> 
             <li class="nav-item">
               <a class="nav-link active" href="<?= base_url('admin') ?>">Página Inicial<span class="sr-only">(current)</span></a>
             </li>
@@ -44,4 +44,4 @@
         </nav>
 
         <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-          <h1>Painel Administrativo - Página Inicial</h1>
+         
