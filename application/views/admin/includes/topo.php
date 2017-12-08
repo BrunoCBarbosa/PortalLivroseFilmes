@@ -16,4 +16,4 @@
     <link href="<?= base_url()?>dist/css/dashboard.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body onUnload="<?php session_destroy()?>">

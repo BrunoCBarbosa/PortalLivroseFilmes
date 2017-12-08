@@ -36,12 +36,12 @@ class Acesso extends CI_Controller{
     public function logar(){
         $this->load->model('admin/acessomodel');
         
-        $email = $this->input->post('email');
+        $cpf = $this->input->post('cpf');
         $senha = md5($this->input->post('senha'));
-        $usuario = $this->acessomodel->logar($email,$senha);
+        $usuario = $this->acessomodel->logar($cpf,$senha);
         
         if(count($usuario) === 1){
-            $dados['codigo'] = $usuario[0]->codigo;
+        //    $dados['codigo'] = $usuario[0]->codigo;
             $dados['nome'] = $usuario[0]->nome;
             $dados['LOGADO'] = TRUE;
             $dados['foto'] = $usuario[0]->foto;

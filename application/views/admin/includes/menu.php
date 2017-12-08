@@ -1,7 +1,8 @@
  <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Portal Livros e Filmes</a>
+        <h4 class="navbar-brand">Portal Livros e Filmes - <?= $this->session->userdata('nome')?></h4>
       </nav>
+     
     </header>
 
     <div class="container-fluid">

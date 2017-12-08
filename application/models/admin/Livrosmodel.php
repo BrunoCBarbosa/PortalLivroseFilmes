@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Noticiasmodel extends CI_Model {
 	
 	
-	public function get_noticias($limit = null) {
+	public function get_livros($limit = null) {
 		$this->db->join('tipos', 'cod_tipo = tipos_cod_tipo', 'inner');
 		if ($limit != null) {
 			$this->db->limit($limit);

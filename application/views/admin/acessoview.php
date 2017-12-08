@@ -34,8 +34,8 @@
                     </div>
                 <?php } ?>
         <h2 class="form-signin-heading">Acesso Restrito</h2>
-        <label for="inputEmail" class="sr-only">Email</label>
-        <input type="email" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
+        <label for="inputEmail" class="sr-only">CPF</label>
+        <input type="cpf" id="cpf" name="cpf" class="form-control" placeholder="CPF" required autofocus>
         <label for="inputPassword" class="sr-only">Senha</label>
         <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required>
         <div class="checkbox">
