@@ -11,7 +11,7 @@
               <a class="nav-link" href="#">Página Inicial<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Livros</a>
+                <a class="nav-link" href="<?= base_url('livros')?>">Livros</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Filmes</a>

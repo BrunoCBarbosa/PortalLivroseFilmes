@@ -8,12 +8,12 @@
     <link rel="icon" href="../../../../favicon.ico">
 
     <title>Painel Administrativo</title>
-
-    <!-- Bootstrap core CSS -->
+    
+    
+       
+    <link href="<?=base_url(); ?>dist/css/main.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>dist/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="<?= base_url()?>dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="<?= base_url()?>dist/css/dashboard.css" rel="stylesheet">
+     <link href="<?= base_url()?>dist/css/dashboard.css" rel="stylesheet">
   </head>
-
-  <body onUnload="<?php session_destroy()?>">
+<body style="padding-top: 50px;">

@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Noticias extends CI_Controller{
+class Livros extends CI_Controller{
     
     public function validar_sessao() {
 		if (!$this->session->userdata('LOGADO')) {
@@ -15,24 +15,24 @@ class Noticias extends CI_Controller{
 		$this->validar_sessao();
 		$this->load->model('admin/livrosmodel');
 		
-		//$data['livros'] = $this->livrosmodel->get_noticias();
+		$data['livros'] = $this->livrosmodel->get_livro();
 		if ($alert != null)
 			$data['alert'] = $this->msg($alert);
 			
 			$this->load->view('admin/includes/topo');
 			$this->load->view('admin/includes/menu');
-			$this->load->view('admin/listanoticiasview', $data);
+			$this->load->view('admin/listalivrosview', $data);
 			$this->load->view('admin/includes/rodape');
 	}
 	
 	public function cadastro() {
 		$this->validar_sessao();
 		$this->load->model('admin/livrosmodel', 'livros');
-		$data['tipos'] = $this->livros->get_livros();
+		$data['tipos'] = $this->livros->get_livro();
 		
 		$this->load->view('admin/includes/topo');
 		$this->load->view('admin/includes/menu');
-		$this->load->view('admin/novanoticiaview', $data);
+		$this->load->view('admin/livronovanoticiaview', $data);
 		$this->load->view('admin/includes/rodape');
 	
 	}
@@ -62,6 +62,7 @@ class Noticias extends CI_Controller{
 		$data = explode('/', $this->input->post('data'));
                 $info['data'] = $data[2].'-'.$data[1].'-'.$data[0];
                 $info['editora'] = $this->input->post('editora');
+                $info['sinopse'] = $this->input->post('sinopse');
 		$info['imagem_noticia'] = $this->upload_imagem();
 		
 		

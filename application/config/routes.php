@@ -53,10 +53,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['admin'] = 'admin/acesso';
 $route['admin/acesso'] = 'admin/acesso/login';
 $route['admin/acesso/(:num)'] = 'admin/acesso/login/$1';
-$route['admin/livros/(:num)'] = 'admin/noticias/index/$1';
+$route['admin/livros/(:num)'] = 'admin/livros/index/$1';
 
 $route['livros']='usu/paginainicial/livros';
-
+$route['livros/(:any)']='usu/paginainicial/livros/$1';
 
 $route['default_controller'] = 'usu/paginainicial';
 $route['404_override'] = '';

@@ -30,7 +30,7 @@
               <a class="nav-link active" href="<?= base_url('admin') ?>">Página Inicial<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Livros</a>
+                <a class="nav-link" href="<?= base_url('admin/livros')?>">Livros</a>
             </li>
               <li class="nav-item">
               <a class="nav-link" href="#">Filmes</a>
