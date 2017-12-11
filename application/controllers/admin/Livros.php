@@ -13,9 +13,9 @@ class Noticias extends CI_Controller{
 	
 	public function index($alert=null) {
 		$this->validar_sessao();
-		$this->load->model('admin/noticiasmodel');
+		$this->load->model('admin/livrosmodel');
 		
-		$data['noticias'] = $this->noticiasmodel->get_noticias();
+		//$data['livros'] = $this->livrosmodel->get_noticias();
 		if ($alert != null)
 			$data['alert'] = $this->msg($alert);
 			
@@ -27,8 +27,8 @@ class Noticias extends CI_Controller{
 	
 	public function cadastro() {
 		$this->validar_sessao();
-		$this->load->model('admin/noticiasmodel', 'noticias');
-		$data['tipos'] = $this->noticias->get_tipos();
+		$this->load->model('admin/livrosmodel', 'livros');
+		$data['tipos'] = $this->livros->get_livros();
 		
 		$this->load->view('admin/includes/topo');
 		$this->load->view('admin/includes/menu');
@@ -39,10 +39,10 @@ class Noticias extends CI_Controller{
 	
 	public function atualizacao($codigo) {
 		$this->validar_sessao();
-		$this->load->model('admin/noticiasmodel', 'noticias');
+		$this->load->model('admin/livrosmodel', 'livros');
 		
-		$data['tipos'] = $this->noticias->get_tipos();
-		$data['noticia'] = $this->noticias->get_noticia($codigo);
+		$data['tipos'] = $this->noticias->get_livros();
+		//$data['noticia'] = $this->noticias->get_noticia($codigo);
 		
 		
 		$this->load->view('admin/includes/topo');
@@ -54,70 +54,69 @@ class Noticias extends CI_Controller{
 	
 	public function salvar() {
 		$this->validar_sessao();
-		$this->load->model('admin/noticiasmodel');
-		$data['titulo_noticia'] = $this->input->post('titulo');
-		$data['subtitulo_noticia'] = $this->input->post('subtitulo');
-		$data['slug_noticia'] = $this->input->post('slug');
-		$data['tipos_cod_tipo'] = $this->input->post('tipo');
-		$data['conteudo_noticia'] = $this->input->post('conteudo');
-		$data['imagem_noticia'] = $this->upload_imagem();
-		$nascimento = explode('/', $this->input->post('data'));
-		$data['data_noticia'] = $nascimento[2] . '-' . $nascimento[1] . '-' . $nascimento[0];
-		$data['titulo_noticia'] = $this->input->post('titulo');
+		$this->load->model('admin/livrosmodel');
+		$info['titulo'] = $this->input->post('titulo');
+		$info['autor'] = $this->input->post('autor');
+		//$data['slug_noticia'] = $this->input->post('slug');
+		$info['classificacao'] = $this->input->post('classificacao');
+		$data = explode('/', $this->input->post('data'));
+                $info['data'] = $data[2].'-'.$data[1].'-'.$data[0];
+                $info['editora'] = $this->input->post('editora');
+		$info['imagem_noticia'] = $this->upload_imagem();
 		
-		$result = $this->noticiasmodel->insert('noticias', $data);
+		
+		$result = $this->livrosmodel->insert('livros', $info);
 		if ($result) {
-			redirect('admin/noticias/1');
+			redirect('admin/livros/1');
 		} else {
-			redirect('admin/noticias/2');
+			redirect('admin/livros/2');
 		}
 	}
 	
 	public function salvar_update() {
 		$this->validar_sessao();
-		$this->load->model('admin/noticiasmodel');
-		$data['titulo_noticia'] = $this->input->post('titulo');
-		$data['subtitulo_noticia'] = $this->input->post('subtitulo');
-		$data['slug_noticia'] = $this->input->post('slug');
-		$data['tipos_cod_tipo'] = $this->input->post('tipo');
-		$data['conteudo_noticia'] = $this->input->post('conteudo');
+		$this->load->model('admin/livrosmodel');
+		$info['titulo'] = $this->input->post('titulo');
+		$info['autor'] = $this->input->post('autor');
+		//$data['slug_noticia'] = $this->input->post('slug');
+		$info['classificacao'] = $this->input->post('classificacao');
+		$info['editora'] = $this->input->post('editora');
 		
 		//A funcção upload_imagem() tentará fazer o upload de uma imagem. Caso o usuario não tenha
 		//selecionado alguma imagem, a função irá retornar null. Sendo assim, não será necessário
 		// atualizar o campo 'imagem_noticia', somente quando a função retornar o nome de uma imagem.
 		$upload = $this->upload_imagem();
 		if ($upload != null) {
-			$data['imagem_noticia'] = $upload;
+			$data['imagem'] = $upload;
 		}
 		
-		$nascimento = explode('/', $this->input->post('data'));
-		$data['data_noticia'] = $nascimento[2] . '-' . $nascimento[1] . '-' . $nascimento[0];
-		$data['titulo_noticia'] = $this->input->post('titulo');
+		$data = explode('/', $this->input->post('data'));
+                $info['data'] = $data[2].'-'.$data[1].'-'.$data[0];
 		
 		$codigo = $this->input->post('codigo');
 		
-		$result = $this->noticiasmodel->update('noticias', $data, $codigo);
+		$result = $this->noticiasmodel->update('noticias', $info, $codigo);
 		if ($result) {
-			redirect('admin/noticias/5');
+			redirect('admin/livros/5');
 		} else {
-			redirect('admin/noticias/6');
+			redirect('admin/livros/6');
 		}
 	}
 	
 	public function deletar($codigo) {
 		$this->validar_sessao();
-		$this->load->model('admin/noticiasmodel');
-		$result = $this->noticiasmodel->delete('noticias', $codigo);
+		$this->load->model('admin/livrosmodel');
+		$result = $this->livrosmodel->delete('livros', $codigo);
 		if ($result) {
-			redirect('admin/noticias/3');
+			redirect('admin/livros/3');
 		} else {
-			redirect('admin/noticias/4');
+			redirect('admin/livros/4');
 		}
 	}
 	
 	function upload_imagem() {
 		
-		$caminho = './imagens/noticias';
+		$caminho = './imagens/livros';
 		$config['upload_path'] = $caminho;
 		$config['allowed_types'] = "gif|jpg|jpeg|png";
 		$config['max_size'] = "5000";
@@ -138,12 +137,12 @@ class Noticias extends CI_Controller{
 		} else {
 			//Deletar foto existente para subir a nova imagem
 			$cod_noticia = $this->input->post('codigo');
-			$this->db->select('cod_noticia,imagem_noticia');
-			$this->db->where('cod_noticia', $cod_noticia);
-			$data = $this->db->get('noticias')->result();
+			$this->db->select('codigo,imagem');
+			$this->db->where('codigo', $cod_noticia);
+			$data = $this->db->get('livros')->result();
 			
-			if (isset($data[0]->imagem_noticia)) {
-				unlink(realpath($caminho) . '/' . $data[0]->imagem_noticia);
+			if (isset($data[0]->imagem)) {
+				unlink(realpath($caminho) . '/' . $data[0]->imagem);
 			}
 			// Fim do código de deletar a imagem
 			
@@ -171,17 +170,17 @@ class Noticias extends CI_Controller{
 	public function msg($alert) {
 		$str = '';
 		if ($alert == 1)
-			$str = 'success- Notícia cadastrada com sucesso!';
+			$str = 'success- livro cadastrado com sucesso!';
 			else if ($alert == 2)
-				$str = 'danger-Não foi possível cadastrar a notícia. Por favor, tente novamente!';
+				$str = 'Não foi possível cadastrar o livro. Por favor, tente novamente!';
 				else if ($alert == 3)
-					$str = 'success- Notícia removida com sucesso!';
+					$str = 'Livro removido com sucesso!';
 					else if ($alert == 4)
-						$str = 'danger-Não foi possível remover a notícia. Por favor, tente novamente!';
+						$str = 'Não foi possível remover a livro. Por favor, tente novamente!';
 						elseif ($alert == 5)
-						$str = 'success- Notícia atualizada com sucesso!';
+						$str = 'Livro atualizado com sucesso!';
 						else if ($alert == 6)
-							$str = 'danger-Não foi possível atualizar a notícia. Por favor, tente novamente!';
+							$str = 'Não foi possível atualizar o livro. Por favor, tente novamente!';
 							else
 								$str = null;
 								return $str;

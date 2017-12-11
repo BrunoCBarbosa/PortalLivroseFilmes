@@ -2,26 +2,26 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Noticiasmodel extends CI_Model {
+class Livrosmodel extends CI_Model {
 	
 	
-	public function get_livros($limit = null) {
-		$this->db->join('tipos', 'cod_tipo = tipos_cod_tipo', 'inner');
-		if ($limit != null) {
-			$this->db->limit($limit);
-		}
-		$this->db->order_by('cod_noticia','DESC');
-		$result = $this->db->get('noticias')->result();
-		return $result;
-	}
-	
-	public function get_noticia($codigo) {
-		$this->db->join('tipos', 'cod_tipo = tipos_cod_tipo', 'inner');
-		$this->db->where('cod_noticia', $codigo);
-		$result = $this->db->get('noticias')->result();
-		return $result;
-	}
-	
+//	public function get_livro($limit = null) {
+//		$this->db->join('tipos', 'cod_tipo = tipos_cod_tipo', 'inner');
+//		if ($limit != null) {
+//			$this->db->limit($limit);
+//		}
+//		$this->db->order_by('cod_noticia','DESC');
+//		$result = $this->db->get('noticias')->result();
+//		return $result;
+//	}
+//	
+//	public function get_livros() {
+//		$this->db->select('*');
+//                $this->db->from('livros');
+//		$result = $this->db->get('livros')->result();
+//		return $result;
+//	}
+//	
 	public function get_noticia_slug($slug) {
 		$this->db->join('tipos', 'cod_tipo = tipos_cod_tipo', 'inner');
 		$this->db->where('slug_noticia', $slug);
@@ -29,28 +29,8 @@ class Noticiasmodel extends CI_Model {
 		return $result;
 	}
 	
-	public function get_tipos() {
-		$result = $this->db->get('tipos')->result();
+	public function get_livros() {
+		$result = $this->db->get('livros')->result();
 		return $result;
 	}
-	
-	public function insert($tabela, $data) {
-		$result = $this->db->insert($tabela, $data);
-		return $result;
-	}
-	
-	public function update($tabela, $data, $codigo) {
-		$this->db->where('cod_noticia', $codigo);
-		$result = $this->db->update($tabela, $data);
-		return $result;
-	}
-	
-	public function delete($tabela, $codigo) {
-		$this->db->where('cod_noticia', $codigo);
-		$result = $this->db->delete($tabela);
-		return $result;
-	}
-	
 }
-
-
