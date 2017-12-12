@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Livrosmodel extends CI_Model {
+class Filmesmodel extends CI_Model {
 	
 	
 //	public function get_livros($limit = null) {
@@ -15,15 +15,15 @@ class Livrosmodel extends CI_Model {
 //		return $result;
 //	}
 	
-	public function get_livro() {
-		$livro = $this->db->get('livros')->result();
-                return $livro;
+	public function get_filme() {
+		$filme = $this->db->get('filmes')->result();
+                return $filme;
                
 	}
         
-        public function get_livros($codigo){
+        public function get_filmes($codigo){
             $this->db->where('codigo',$codigo);
-            $result = $this->db->get('livros')->result();
+            $result = $this->db->get('filmes')->result();
             return $result;
         }
 	

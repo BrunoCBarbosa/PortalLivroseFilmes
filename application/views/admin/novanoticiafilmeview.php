@@ -1,5 +1,5 @@
 <h1>Cadastrar Filme</h1>
-<form action="<?= base_url('admin/livros/salvar')?>" method="post" enctype="multiplart/form-data">
+<form action="<?= base_url('admin/filmes/salvar')?>" method="post" enctype="multiplart/form-data">
     <div class="row form-group">
         <div class="col-sm-5">
             <label for="titulo">Título</label>
@@ -7,27 +7,31 @@
           
         </div>
         <div class="col-sm-7">
-            <label for="autor">Autor</label>
-            <input type="text" class="form-control" name="autor">
+            <label for="autor">Diretor</label>
+            <input type="text" class="form-control" name="diretor">
         </div>
           <div class="col-sm-5">
-            <label for="editora">Editora</label>
-            <input type="text" class="form-control" name="editora">
+            <label for="editora">Elenco</label>
+            <input type="text" class="form-control" name="elenco">
          </div>
         <div class="col-sm-4">
-            <label for="data">Data da Publicação</label>
+            <label for="data">Data de Lançamento</label>
             <input type="text" class="form-control" placeholder="__/__/____" name="data">
         </div>  
         <div class="col-sm-4">
             <label for="classificacao">Classificação</label>
-            <input type="text" class="form-control" placeholder="Sinopse" name="sinopse">
+            <input type="text" class="form-control"name="classificacao">
+        </div>
+        <div class="col-sm-4">
+            <label for="imagem">Imagem</label>
+            <input type="file" id="imagem" name="imagem">
         </div>
     
     </div>
     <div class="row form-group">
         <div class="col-sm-8">
             <label for="sinopse">Sinopse</label>
-            <textarea class="form-control" rows="9" placeholder="Classificação" name="classificacao"></textarea>
+            <textarea class="form-control" rows="9" name="sinopse"></textarea>
         </div>   
     </div>   
     <button type="submit" class="btn btn-success">Enviar</button>

@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Livros extends CI_Controller{
+class Filmes extends CI_Controller{
     
     public function validar_sessao() {
 		if (!$this->session->userdata('LOGADO')) {
@@ -13,41 +13,41 @@ class Livros extends CI_Controller{
 	
 	public function index($alert=null) {
 		$this->validar_sessao();
-		$this->load->model('admin/livrosmodel');
+		$this->load->model('admin/filmesmodel');
 		
-		$data['livros'] = $this->livrosmodel->get_livro();
+		$data['filmes'] = $this->filmesmodel->get_filme();
 		if ($alert != null)
 			$data['alert'] = $this->msg($alert);
 			
 			$this->load->view('admin/includes/topo');
 			$this->load->view('admin/includes/menu');
-			$this->load->view('admin/listalivrosview', $data);
+			$this->load->view('admin/listafilmesview', $data);
 			$this->load->view('admin/includes/rodape');
 	}
 	
 	public function cadastro() {
 		$this->validar_sessao();
-		$this->load->model('admin/livrosmodel', 'livros');
-		$data = $this->livros->get_livro();
+		$this->load->model('admin/filmesmodel', 'filmes');
+		$data = $this->filmes->get_filme();
 		
 		$this->load->view('admin/includes/topo');
 		$this->load->view('admin/includes/menu');
-		$this->load->view('admin/novanoticialivroview', $data);
+		$this->load->view('admin/novanoticiafilmeview', $data);
 		$this->load->view('admin/includes/rodape');
 	
 	}
 	
 	public function atualizacao($codigo) {
 		$this->validar_sessao();
-		$this->load->model('admin/livrosmodel', 'livros');
+		$this->load->model('admin/filmesmodel', 'filmes');
 		
 		//$data = $this->livros->get_livro();
-		$data = $this->livros->get_livros($codigo);
+		$data = $this->filmes->get_filmes($codigo);
 		
 		
 		$this->load->view('admin/includes/topo');
 		$this->load->view('admin/includes/menu');
-		$this->load->view('admin/atualizalivroview', $data);
+		$this->load->view('admin/atualizafilmeview', $data);
 		$this->load->view('admin/includes/rodape');
 	
 	}
@@ -56,21 +56,21 @@ class Livros extends CI_Controller{
 		$this->validar_sessao();
 		$this->load->model('admin/bancomodel');
 		$info['titulo'] = $this->input->post('titulo');
-		$info['autor'] = $this->input->post('autor');
+		$info['diretor'] = $this->input->post('diretor');
 		//$data['slug_noticia'] = $this->input->post('slug');
-		$info['classificacao'] = $this->input->post('classificacao');
-		$data = explode('/', $this->input->post('data'));
+		$info['elenco'] = $this->input->post('elenco');
+                $data = explode('/', $this->input->post('data'));
                 $info['data'] = $data[2].'-'.$data[1].'-'.$data[0];
-                $info['editora'] = $this->input->post('editora');
-                $info['sinopse'] = $this->input->post('sinopse');
+                $info['classificacao'] = $this->input->post('classificacao');
 		$info['imagem'] = $this->upload_imagem();
+		$info['sinopse'] = $this->input->post('sinopse');
 		
 		
-		$result = $this->bancomodel->insert('livros', $info);
+		$result = $this->bancomodel->insert('filmes', $info);
 		if ($result) {
-			redirect('admin/livros/1');
+			redirect('admin/filmes/1');
 		} else {
-			redirect('admin/livros/2');
+			redirect('admin/filmes/2');
 		}
 	}
 	
@@ -78,10 +78,10 @@ class Livros extends CI_Controller{
 		$this->validar_sessao();
 		$this->load->model('admin/bancomodel');
 		$info['titulo'] = $this->input->post('titulo');
-		$info['autor'] = $this->input->post('autor');
+		$info['diretor'] = $this->input->post('diretor');
 		//$data['slug_noticia'] = $this->input->post('slug');
 		$info['classificacao'] = $this->input->post('classificacao');
-		$info['editora'] = $this->input->post('editora');
+		$info['elenco'] = $this->input->post('elenco');
 		
 		//A funcção upload_imagem() tentará fazer o upload de uma imagem. Caso o usuario não tenha
 		//selecionado alguma imagem, a função irá retornar null. Sendo assim, não será necessário
@@ -96,28 +96,28 @@ class Livros extends CI_Controller{
 		
 		$codigo = $this->input->post('codigo');
 		
-		$result = $this->bancomodel->update('livros', $info, $codigo);
+		$result = $this->bancomodel->update('filmes', $info, $codigo);
 		if ($result) {
-			redirect('admin/livros/5');
+			redirect('admin/filmes/5');
 		} else {
-			redirect('admin/livros/6');
+			redirect('admin/filmes/6');
 		}
 	}
 	
 	public function deletar($codigo) {
 		$this->validar_sessao();
 		$this->load->model('admin/bancomodel');
-		$result = $this->bancomodel->delete('livros', $codigo);
+		$result = $this->bancomodel->delete('filmes', $codigo);
 		if ($result) {
-			redirect('admin/livros/3');
+			redirect('admin/filmes/3');
 		} else {
-			redirect('admin/livros/4');
+			redirect('admin/filmes/4');
 		}
 	}
 	
 	function upload_imagem() {
 		
-		$caminho = './imagem/livros';
+		$caminho = './imagem/filmes';
 		$config['upload_path'] = $caminho;
 		$config['allowed_types'] = "gif|jpg|jpeg|png";
 		$config['max_size'] = "5000";
@@ -140,7 +140,7 @@ class Livros extends CI_Controller{
 			$codigo = $this->input->post('codigo');
 			$this->db->select('codigo,imagem');
 			$this->db->where('codigo', $codigo);
-			$data = $this->db->get('livros')->result();
+			$data = $this->db->get('filmes')->result();
 			
 			if (isset($data[0]->imagem)) {
 				unlink(realpath($caminho) . '/' . $data[0]->imagem);
@@ -171,17 +171,17 @@ class Livros extends CI_Controller{
 	public function msg($alert) {
 		$str = '';
 		if ($alert == 1)
-			$str = 'success- livro cadastrado com sucesso!';
+			$str = 'success- filme cadastrado com sucesso!';
 			else if ($alert == 2)
-				$str = 'Não foi possível cadastrar o livro. Por favor, tente novamente!';
+				$str = 'Não foi possível cadastrar o filme. Por favor, tente novamente!';
 				else if ($alert == 3)
-					$str = 'Livro removido com sucesso!';
+					$str = 'Filme removido com sucesso!';
 					else if ($alert == 4)
-						$str = 'Não foi possível remover a livro. Por favor, tente novamente!';
+						$str = 'Não foi possível remover a filme. Por favor, tente novamente!';
 						else if ($alert == 5)
-						$str = 'Livro atualizado com sucesso!';
+						$str = 'Filme atualizado com sucesso!';
 						else if ($alert == 6)
-							$str = 'Não foi possível atualizar o livro. Por favor, tente novamente!';
+							$str = 'Não foi possível atualizar o filme. Por favor, tente novamente!';
 							else
 								$str = null;
 								return $str;

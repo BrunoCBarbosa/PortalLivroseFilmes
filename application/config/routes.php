@@ -54,9 +54,13 @@ $route['admin'] = 'admin/acesso';
 $route['admin/acesso'] = 'admin/acesso/login';
 $route['admin/acesso/(:num)'] = 'admin/acesso/login/$1';
 $route['admin/livros/(:num)'] = 'admin/livros/index/$1';
+$route['admin/filmes/(:num)'] = 'admin/filmes/index/$1';
 
 $route['livros']='usu/paginainicial/livros';
 $route['livros/(:any)']='usu/paginainicial/livros/$1';
+
+$route['filmes']='usu/paginainicial/filmes';
+$route['filmes/(:any)']='usu/paginainicial/filmes/$1';
 
 $route['default_controller'] = 'usu/paginainicial';
 $route['404_override'] = '';
