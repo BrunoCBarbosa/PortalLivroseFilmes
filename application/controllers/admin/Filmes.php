@@ -42,7 +42,7 @@ class Filmes extends CI_Controller{
 		$this->load->model('admin/filmesmodel', 'filmes');
 		
 		//$data = $this->livros->get_livro();
-		$data = $this->filmes->get_filmes($codigo);
+		$data['filme'] = $this->filmes->get_filmes($codigo);
 		
 		
 		$this->load->view('admin/includes/topo');

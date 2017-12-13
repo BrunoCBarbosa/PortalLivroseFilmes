@@ -8,7 +8,9 @@
     <link rel="icon" href="../../../../favicon.ico">
 
     <title>Portal Livros e Filmes</title>
-
+    
+      <link href="<?=base_url(); ?>dist/css/main.css" rel="stylesheet">
+   
     <!-- Bootstrap core CSS -->
     <link href="<?= base_url()?>dist/css/bootstrap.min.css" rel="stylesheet">
 

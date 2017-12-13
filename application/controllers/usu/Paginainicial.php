@@ -14,21 +14,40 @@ class Paginainicial extends CI_Controller{
 
 	}
 	
-//	public function livros ($slug = null) {
-//		$this->load->view('usu/includes/topo');
-//		$this->load->view('usu/includes/menu');
-//		if ($slug == null) {
-//			$this->load->model('admin/livrosmodel');
-//			$data['livros'] = $this->livrosmodel->get_livros();
-//			$this->load->view('usu/livrosview',$data);
-//		} else {
-//			$this->load->model('admin/livrosmodel');
-//			$data['noticia'] = $this->noticiasmodel->get_noticia_slug($slug);
-//			$this->load->view('usu/livrosview',$data);
-//		}
-//		$this->load->view('usu/includes/rodape');
-//	}
-	public function contato() {
+	
+        
+        public function livros ($titulo = null) {
+		$this->load->view('usu/includes/topo');
+		$this->load->view('usu/includes/menu');
+		if ($titulo == null) {
+			$this->load->model('admin/livrosmodel');
+			$data['livros'] = $this->livrosmodel->get_livro();
+			$this->load->view('usu/livrosview',$data);
+		} else {
+			$this->load->model('admin/livrosmodel');
+                        $data['livros'] = $this->livrosmodel->get_livro();
+                        $this->load->view('usu/livroview',$data);
+		}
+		$this->load->view('usu/includes/rodape');
+	}
+        
+        public function filmes ($titulo = null) {
+		$this->load->view('usu/includes/topo');
+		$this->load->view('usu/includes/menu');
+		if ($titulo == null) {
+			$this->load->model('admin/filmesmodel');
+			$data['livros'] = $this->filmesmodel->get_filme();
+			$this->load->view('usu/filmesview',$data);
+		} else {
+			$this->load->model('admin/filmesmodel');
+                        $data['filmes'] = $this->filmesmodel->get_filme();
+                        $this->load->view('usu/filmeview',$data);
+		}
+		$this->load->view('usu/includes/rodape');
+	}
+
+
+        public function contato() {
 		$this->load->view('usu/includes/topo');
 		$this->load->view('usu/includes/menu');
 		$this->load->view('usu/contatoview');

@@ -20,7 +20,7 @@
         </div>  
         <div class="col-sm-4">
             <label for="classificacao">Classificação</label>
-            <input type="text" class="form-control" name="sinopse">
+            <input type="text" class="form-control" name="classificacao">
         </div>
         <div class="col-sm-4">
             <label for="imagem">Imagem</label>
@@ -31,7 +31,8 @@
     <div class="row form-group">
         <div class="col-sm-8">
             <label for="sinopse">Sinopse</label>
-            <textarea class="form-control" rows="9" name="classificacao"></textarea>
+                       <textarea class="form-control" rows="9" name="sinopse"></textarea>   
+
         </div>   
     </div>   
     <button type="submit" class="btn btn-success">Enviar</button>

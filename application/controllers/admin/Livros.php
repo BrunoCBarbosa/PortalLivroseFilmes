@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -42,7 +42,7 @@ class Livros extends CI_Controller{
 		$this->load->model('admin/livrosmodel', 'livros');
 		
 		//$data = $this->livros->get_livro();
-		$data = $this->livros->get_livros($codigo);
+		$data['livro'] = $this->livros->get_livros($codigo);
 		
 		
 		$this->load->view('admin/includes/topo');
@@ -81,7 +81,10 @@ class Livros extends CI_Controller{
 		$info['autor'] = $this->input->post('autor');
 		//$data['slug_noticia'] = $this->input->post('slug');
 		$info['classificacao'] = $this->input->post('classificacao');
-		$info['editora'] = $this->input->post('editora');
+		$data = explode('/', $this->input->post('data'));
+                $info['data'] = $data[2].'-'.$data[1].'-'.$data[0];
+                $info['editora'] = $this->input->post('editora');
+                $info['sinopse'] = $this->input->post('sinopse');
 		
 		//A funcção upload_imagem() tentará fazer o upload de uma imagem. Caso o usuario não tenha
 		//selecionado alguma imagem, a função irá retornar null. Sendo assim, não será necessário
@@ -90,11 +93,7 @@ class Livros extends CI_Controller{
 		if ($upload != null) {
 			$data['imagem'] = $upload;
 		}
-		
-		$data = explode('/', $this->input->post('data'));
-                $info['data'] = $data[2].'-'.$data[1].'-'.$data[0];
-		
-		$codigo = $this->input->post('codigo');
+				$codigo = $this->input->post('codigo');
 		
 		$result = $this->bancomodel->update('livros', $info, $codigo);
 		if ($result) {
