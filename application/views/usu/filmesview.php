@@ -8,6 +8,7 @@
             <div class="col-sm-3">
                 <div class="caixa-noticia">
                     <div class="row">
+                         <a href="<?= base_url('filmes/' . $row->titulo) ?>">
                         <div class="col-sm-12">
                             <img class="img-responsive" src="<?= base_url('imagens/filmes'.$row->imagem)?>"/>
                         </div>   

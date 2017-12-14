@@ -33,7 +33,7 @@
                 <td><?= $row->titulo;?></td>
                 <td>
                     <div style="float:right">
-                        <a href="#" class="btn btn-success " target="_blank"> Ver</a>
+                        <a href="<?= base_url('usu/paginainicial/filmes/'.$row->codigo)?>" class="btn btn-success " target="_blank"> Ver</a>
                         <a href="<?= base_url('admin/filmes/atualizacao/'.$row->codigo)?>" class="btn btn-info">Atualizar</a>
                         <a href="<?= base_url('admin/filmes/deletar/'.$row->codigo)?>" class="btn btn-danger "  onclick="return confirm('Deseja realmente apagar?')">Deletar</a>
                     </div>

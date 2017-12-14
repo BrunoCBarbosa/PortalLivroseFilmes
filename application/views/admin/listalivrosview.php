@@ -29,11 +29,11 @@
             <?php foreach($livros as $row):?>
             <tr>
                 <th scope="row"><?= $row->codigo;?></th>
-                <td><?= base_url('imagem/livros'.$row->imagem)?></td>
+                <td><?= base_url('imagens/livros'.$row->imagem)?></td>
                 <td><?= $row->titulo;?></td>
                 <td>
                     <div style="float:right">
-                        <a href="#" class="btn btn-success " target="_blank"> Ver</a>
+                        <a href="<?= base_url('usu/paginainicial/livros/'.$row->codigo)?>" class="btn btn-success " target="_blank"> Ver</a>
                         <a href="<?= base_url('admin/livros/atualizacao/'.$row->codigo)?>" class="btn btn-info">Atualizar</a>
                         <a href="<?= base_url('admin/livros/deletar/'.$row->codigo)?>" class="btn btn-danger "  onclick="return confirm('Deseja realmente apagar?')">Deletar</a>
                     </div>

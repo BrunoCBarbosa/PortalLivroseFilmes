@@ -116,7 +116,7 @@ class Livros extends CI_Controller{
 	
 	function upload_imagem() {
 		
-		$caminho = './imagem/livros';
+		$caminho = './imagens/livros';
 		$config['upload_path'] = $caminho;
 		$config['allowed_types'] = "gif|jpg|jpeg|png";
 		$config['max_size'] = "5000";

@@ -36,7 +36,7 @@ class Paginainicial extends CI_Controller{
 		$this->load->view('usu/includes/menu');
 		if ($titulo == null) {
 			$this->load->model('admin/filmesmodel');
-			$data['livros'] = $this->filmesmodel->get_filme();
+			$data['filmes'] = $this->filmesmodel->get_filme();
 			$this->load->view('usu/filmesview',$data);
 		} else {
 			$this->load->model('admin/filmesmodel');
