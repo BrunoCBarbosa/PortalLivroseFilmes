@@ -16,9 +16,9 @@ class Livros extends CI_Controller{
 		$this->load->model('admin/livrosmodel');
 		
 		$data['livros'] = $this->livrosmodel->get_livro();
-		if ($alert != null)
+		if ($alert != null){
 			$data['alert'] = $this->msg($alert);
-			
+                }
 			$this->load->view('admin/includes/topo');
 			$this->load->view('admin/includes/menu');
 			$this->load->view('admin/listalivrosview', $data);
@@ -170,20 +170,21 @@ class Livros extends CI_Controller{
 	public function msg($alert) {
 		$str = '';
 		if ($alert == 1)
-			$str = 'success- livro cadastrado com sucesso!';
-			else if ($alert == 2)
-				$str = 'Não foi possível cadastrar o livro. Por favor, tente novamente!';
-				else if ($alert == 3)
-					$str = 'Livro removido com sucesso!';
-					else if ($alert == 4)
-						$str = 'Não foi possível remover a livro. Por favor, tente novamente!';
-						else if ($alert == 5)
-						$str = 'Livro atualizado com sucesso!';
-						else if ($alert == 6)
-							$str = 'Não foi possível atualizar o livro. Por favor, tente novamente!';
-							else
-								$str = null;
-								return $str;
+                    $str = 'success- livro cadastrado com sucesso!';
+		else if ($alert == 2)
+                    $str = 'Não foi possível cadastrar o livro. Por favor, tente novamente!';
+		else if ($alert == 3)
+                    $str = 'Livro removido com sucesso!';
+		else if ($alert == 4)
+                    $str = 'Não foi possível remover a livro. Por favor, tente novamente!';
+		else if ($alert == 5)
+                    $str = 'Livro atualizado com sucesso!';
+		else if ($alert == 6)
+                    $str = 'Não foi possível atualizar o livro. Por favor, tente novamente!';
+		else
+                    $str = null;
+                
+		return $str;
 	}
 	
 }

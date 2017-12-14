@@ -1,16 +1,18 @@
+<div class="container">
 <h1 class="page-header">Livros</h1>
-<?php if(isset($alert)) {?>
-    <div class="alert alert-<?php
-    $a = explode('-', isset($alert) ? $alert : '');
-    echo $a[0];
-    ?>">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <?php
+
+<?php if (isset($alert)) { ?>
+            <div class="alert alert-<?php
             $a = explode('-', isset($alert) ? $alert : '');
-            echo $a[1];
-        ?>
-    </div>
-<?php } ?>
+            echo $a[0];
+            ?>">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <?php
+                $a = explode('-', isset($alert) ? $alert : '');
+                echo $a[0];
+                ?>
+            </div>
+       <?php } ?>
 <div class="bs-example" data-example-id="striped-table">
     <table class="table table-striped" id="dataTable">
         <thead>
@@ -43,3 +45,4 @@
         </tbody>
     </table>
    </div>
+    </div>

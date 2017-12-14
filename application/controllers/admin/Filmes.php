@@ -117,7 +117,7 @@ class Filmes extends CI_Controller{
 	
 	function upload_imagem() {
 		
-		$caminho = './imagem/filmes';
+		$caminho = './imagens/filmes';
 		$config['upload_path'] = $caminho;
 		$config['allowed_types'] = "gif|jpg|jpeg|png";
 		$config['max_size'] = "5000";

@@ -1,3 +1,4 @@
+<div class="container">
 <h1 class="page-header">Filmes</h1>
 <?php if(isset($alert)) {?>
     <div class="alert alert-<?php
@@ -29,7 +30,7 @@
             <?php foreach($filmes as $row):?>
             <tr>
                 <th scope="row"><?= $row->codigo;?></th>
-                <td><?= base_url('imagem/livros'.$row->imagem)?></td>
+                <td><img class="img-responsive" src="<?= base_url('imagens/filmes/'.$row->imagem)?>"</td>
                 <td><?= $row->titulo;?></td>
                 <td>
                     <div style="float:right">
@@ -43,3 +44,4 @@
         </tbody>
     </table>
    </div>
+</div>
