@@ -13,7 +13,7 @@
        
     <link href="<?=base_url(); ?>dist/css/main.css" rel="stylesheet">
     <link href="<?= base_url(); ?>dist/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="<?= base_url()?>dist/css/bootstrap.min.css" rel="stylesheet">
-     <link href="<?= base_url()?>dist/css/dashboard.css" rel="stylesheet">
+    <link href="<?= base_url();?>dist/css/bootstrap.min.css" rel="stylesheet">
+     <link href="<?= base_url();?>dist/css/dashboard.css" rel="stylesheet">
   </head>
 <body style="padding-top: 50px;">

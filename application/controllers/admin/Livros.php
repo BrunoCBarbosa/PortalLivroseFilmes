@@ -153,8 +153,8 @@ class Livros extends CI_Controller{
 			$config['maintain_ratio'] = false; //Redimensiona a imagem sem desconfiguralá-la;
 			$config['quality'] = "100%";
 			
-			$config['width'] = 740;
-			$config['height'] = 500;
+			$config['width'] = 200;
+			$config['height'] = 200;
 			
 			//Redimena a imagem
 			$this->load->library('image_lib', $config);
@@ -172,20 +172,23 @@ class Livros extends CI_Controller{
 		if ($alert == 1)
                     $str = 'success- livro cadastrado com sucesso!';
 		else if ($alert == 2)
-                    $str = 'Não foi possível cadastrar o livro. Por favor, tente novamente!';
+                    $str = 'danger-Não foi possível cadastrar o livro. Por favor, tente novamente!';
 		else if ($alert == 3)
-                    $str = 'Livro removido com sucesso!';
+                    $str = 'success-Livro removido com sucesso!';
 		else if ($alert == 4)
-                    $str = 'Não foi possível remover a livro. Por favor, tente novamente!';
+                    $str = 'danger-Não foi possível remover a livro. Por favor, tente novamente!';
 		else if ($alert == 5)
-                    $str = 'Livro atualizado com sucesso!';
+                    $str = 'success-Livro atualizado com sucesso!';
 		else if ($alert == 6)
-                    $str = 'Não foi possível atualizar o livro. Por favor, tente novamente!';
+                    $str = 'danger-Não foi possível atualizar o livro. Por favor, tente novamente!';
 		else
                     $str = null;
                 
 		return $str;
 	}
+        
+        
+	
 	
 }
 

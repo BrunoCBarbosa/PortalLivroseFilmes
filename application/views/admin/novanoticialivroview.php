@@ -1,5 +1,5 @@
 <h1>Cadastrar Livro</h1>
-<form action="<?= base_url('admin/livros/salvar')?>" method="post" enctype="multiplart/form-data">
+<form action="<?= base_url('admin/livros/salvar')?>" method="post" enctype="multipart/form-data">
     <div class="row form-group">
         <div class="col-sm-5">
             <label for="titulo">Título</label>

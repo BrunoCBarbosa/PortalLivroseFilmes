@@ -8,9 +8,9 @@
             <div class="col-sm-3">
                 <div class="caixa-noticia">
                     <div class="row">
-                         <a href="<?= base_url('filmes/' . $row->titulo) ?>">
+                         <a href="<?= base_url('filmes/' . $row->codigo) ?>">
                         <div class="col-sm-12">
-                            <img class="img-responsive" src="<?= base_url('imagens/filmes'.$row->imagem)?>"/>
+                            <img class="img-responsive" src="<?= base_url('imagens/filmes/'.$row->imagem)?>"/>
                         </div>   
                         <div class="col-sm-12">
                             <h4 class="titulo_noticia"><?= $row->titulo;?></h4>

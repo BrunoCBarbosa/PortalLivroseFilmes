@@ -36,9 +36,6 @@
                   <a class="nav-link" href="<?= base_url('admin/filmes')?>">Filmes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?= base_url('admin/contatos') ?>">Contato</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('admin/acesso/logout') ?>" onclick="return confirm('Deseja sair?')">Sair</a>
             </li>
           </ul>

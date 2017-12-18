@@ -82,13 +82,13 @@ class Filmes extends CI_Controller{
 		//$data['slug_noticia'] = $this->input->post('slug');
 		$info['classificacao'] = $this->input->post('classificacao');
 		$info['elenco'] = $this->input->post('elenco');
-		
+		$info['sinopse'] = $this->input->post('sinopse');
 		//A funcção upload_imagem() tentará fazer o upload de uma imagem. Caso o usuario não tenha
 		//selecionado alguma imagem, a função irá retornar null. Sendo assim, não será necessário
 		// atualizar o campo 'imagem_noticia', somente quando a função retornar o nome de uma imagem.
 		$upload = $this->upload_imagem();
 		if ($upload != null) {
-			$data['imagem'] = $upload;
+			$info['imagem'] = $upload;
 		}
 		
 		$data = explode('/', $this->input->post('data'));
@@ -154,8 +154,8 @@ class Filmes extends CI_Controller{
 			$config['maintain_ratio'] = false; //Redimensiona a imagem sem desconfiguralá-la;
 			$config['quality'] = "100%";
 			
-			$config['width'] = 740;
-			$config['height'] = 500;
+			$config['width'] = 200;
+			$config['height'] = 200;
 			
 			//Redimena a imagem
 			$this->load->library('image_lib', $config);
@@ -171,20 +171,20 @@ class Filmes extends CI_Controller{
 	public function msg($alert) {
 		$str = '';
 		if ($alert == 1)
-			$str = 'success- filme cadastrado com sucesso!';
-			else if ($alert == 2)
-				$str = 'Não foi possível cadastrar o filme. Por favor, tente novamente!';
-				else if ($alert == 3)
-					$str = 'Filme removido com sucesso!';
-					else if ($alert == 4)
-						$str = 'Não foi possível remover a filme. Por favor, tente novamente!';
-						else if ($alert == 5)
-						$str = 'Filme atualizado com sucesso!';
-						else if ($alert == 6)
-							$str = 'Não foi possível atualizar o filme. Por favor, tente novamente!';
-							else
-								$str = null;
-								return $str;
+                    $str = 'success- filme cadastrado com sucesso!';
+		else if ($alert == 2)
+                    $str = 'danger-Não foi possível cadastrar o filme. Por favor, tente novamente!';
+		else if ($alert == 3)
+                    $str = 'success- Filme removido com sucesso!';
+		else if ($alert == 4)
+                    $str = 'danger-Não foi possível remover a filme. Por favor, tente novamente!';
+		else if ($alert == 5)
+                    $str = 'success- Filme atualizado com sucesso!';
+		else if ($alert == 6)
+                    $str = 'danger-Não foi possível atualizar o filme. Por favor, tente novamente!';
+		else
+                    $str = null;
+		return $str;
 	}
 	
 }

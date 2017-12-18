@@ -9,7 +9,7 @@
                 <button type="button" class="close" data-dismiss="alert">×</button>
                 <?php
                 $a = explode('-', isset($alert) ? $alert : '');
-                echo $a[0];
+                echo $a[1];
                 ?>
             </div>
        <?php } ?>
@@ -31,7 +31,7 @@
             <?php foreach($livros as $row):?>
             <tr>
                 <th scope="row"><?= $row->codigo;?></th>
-                <td><?= base_url('imagens/livros'.$row->imagem)?></td>
+                <td><img class="img-responsive" src="<?= base_url('imagens/livros/'.$row->imagem)?>"></td>
                 <td><?= $row->titulo;?></td>
                 <td>
                     <div style="float:right">

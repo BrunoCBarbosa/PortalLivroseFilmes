@@ -30,7 +30,7 @@
             <?php foreach($filmes as $row):?>
             <tr>
                 <th scope="row"><?= $row->codigo;?></th>
-                <td><img class="img-responsive" src="<?= base_url('imagens/filmes/'.$row->imagem)?>"</td>
+                <td><img class="img-responsive" src="<?= base_url('imagens/filmes/'.$row->imagem)?>"></td>
                 <td><?= $row->titulo;?></td>
                 <td>
                     <div style="float:right">
