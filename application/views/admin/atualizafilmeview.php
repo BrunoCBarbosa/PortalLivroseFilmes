@@ -1,6 +1,6 @@
 <h1>Atualizar Filme</h1>
-<form action="<?= base_url('admin/filmes/salvar_update')?>" method="post" enctype="multiplart/form-data">
-    <input type="hidden" name="coodigo" value="<?= $filme[0]->codigo ?>">
+<form action="<?= base_url('admin/filmes/salvar_update')?>" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="codigo" value="<?= $filme[0]->codigo?>">
     <div class="row form-group">
         <div class="col-sm-5">
             <label for="titulo">Título</label>
@@ -21,7 +21,7 @@
         </div>  
         <div class="col-sm-4">
             <label for="classificacao">Classificação</label>
-            <input type="text" class="form-control" value="<?= $filme[0]->classificacao ?>" name="classificacao">
+            <input type="text" class="form-control" value="<?= $filme[0]->classificacao; ?>" name="classificacao">
         </div>
         <div class="col-sm-4">
             <label for="imagem">Imagem</label>
@@ -32,7 +32,7 @@
     <div class="row form-group">
         <div class="col-sm-8">
             <label for="sinopse">Sinopse</label>
-            <textarea class="form-control" rows="9" name="sinopse"><?= $filme[0]->sinopse ?></textarea>
+            <textarea class="form-control" rows="9" name="sinopse"><?= $filme[0]->sinopse; ?></textarea>
         </div>   
     </div>   
     <button type="submit" class="btn btn-success">Enviar</button>

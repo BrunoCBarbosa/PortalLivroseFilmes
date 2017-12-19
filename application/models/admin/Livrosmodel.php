@@ -16,6 +16,7 @@ class Livrosmodel extends CI_Model {
 //	}
 	
 	public function get_livro() {
+                $this->db->order_by('titulo','CRESC');
 		$livro = $this->db->get('livros')->result();
                 return $livro;
                

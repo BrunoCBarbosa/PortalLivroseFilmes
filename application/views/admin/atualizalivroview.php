@@ -1,5 +1,5 @@
 <h1>Atualizar Livro </h1>
-<form action="<?= base_url('admin/livros/salvar_update')?>" method="post" enctype="multiplart/form-data">
+<form action="<?= base_url('admin/livros/salvar_update')?>" method="post" enctype="multipart/form-data">
     <input type="hidden" name="codigo" value="<?= $livro[0]->codigo?>">
     <div class="row form-group">
         <div class="col-sm-5">

@@ -79,7 +79,6 @@ class Livros extends CI_Controller{
 		$this->load->model('admin/bancomodel');
 		$info['titulo'] = $this->input->post('titulo');
 		$info['autor'] = $this->input->post('autor');
-		//$data['slug_noticia'] = $this->input->post('slug');
 		$info['classificacao'] = $this->input->post('classificacao');
 		$data = explode('/', $this->input->post('data'));
                 $info['data'] = $data[2].'-'.$data[1].'-'.$data[0];
@@ -91,9 +90,10 @@ class Livros extends CI_Controller{
 		// atualizar o campo 'imagem_noticia', somente quando a função retornar o nome de uma imagem.
 		$upload = $this->upload_imagem();
 		if ($upload != null) {
-			$data['imagem'] = $upload;
+			$info['imagem'] = $upload;
 		}
-				$codigo = $this->input->post('codigo');
+		
+                $codigo = $this->input->post('codigo');
 		
 		$result = $this->bancomodel->update('livros', $info, $codigo);
 		if ($result) {

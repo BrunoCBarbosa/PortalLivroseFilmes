@@ -79,29 +79,29 @@ class Filmes extends CI_Controller{
 		$this->load->model('admin/bancomodel');
 		$info['titulo'] = $this->input->post('titulo');
 		$info['diretor'] = $this->input->post('diretor');
-		//$data['slug_noticia'] = $this->input->post('slug');
+                $info['elenco'] = $this->input->post('elenco');
+                $data = explode('/', $this->input->post('data'));
+                $info['data'] = $data[2].'-'.$data[1].'-'.$data[0];
 		$info['classificacao'] = $this->input->post('classificacao');
-		$info['elenco'] = $this->input->post('elenco');
-		$info['sinopse'] = $this->input->post('sinopse');
-		//A funcção upload_imagem() tentará fazer o upload de uma imagem. Caso o usuario não tenha
+        	$info['sinopse'] = $this->input->post('sinopse');
+	
+                //A funcção upload_imagem() tentará fazer o upload de uma imagem. Caso o usuario não tenha
 		//selecionado alguma imagem, a função irá retornar null. Sendo assim, não será necessário
 		// atualizar o campo 'imagem_noticia', somente quando a função retornar o nome de uma imagem.
 		$upload = $this->upload_imagem();
 		if ($upload != null) {
 			$info['imagem'] = $upload;
 		}
-		
-		$data = explode('/', $this->input->post('data'));
-                $info['data'] = $data[2].'-'.$data[1].'-'.$data[0];
-		
 		$codigo = $this->input->post('codigo');
 		
 		$result = $this->bancomodel->update('filmes', $info, $codigo);
-		if ($result) {
-			redirect('admin/filmes/5');
+              
+                if ($result) {
+                	redirect('admin/filmes/5');
 		} else {
 			redirect('admin/filmes/6');
 		}
+                
 	}
 	
 	public function deletar($codigo) {

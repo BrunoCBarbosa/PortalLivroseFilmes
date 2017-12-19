@@ -16,6 +16,7 @@ class Filmesmodel extends CI_Model {
 //	}
 	
 	public function get_filme() {
+                $this->db->order_by('titulo','CRESC');
 		$filme = $this->db->get('filmes')->result();
                 return $filme;
                
