@@ -59,8 +59,8 @@ class Filmes extends CI_Controller{
 		$info['diretor'] = $this->input->post('diretor');
 		//$data['slug_noticia'] = $this->input->post('slug');
 		$info['elenco'] = $this->input->post('elenco');
-                $data = explode('/', $this->input->post('data'));
-                $info['data'] = $data[2].'-'.$data[1].'-'.$data[0];
+               // $data = explode('/', $this->input->post('data'));
+                $info['data'] = $this->input->post('data');
                 $info['classificacao'] = $this->input->post('classificacao');
 		$info['imagem'] = $this->upload_imagem();
 		$info['sinopse'] = $this->input->post('sinopse');
@@ -80,8 +80,8 @@ class Filmes extends CI_Controller{
 		$info['titulo'] = $this->input->post('titulo');
 		$info['diretor'] = $this->input->post('diretor');
                 $info['elenco'] = $this->input->post('elenco');
-                $data = explode('/', $this->input->post('data'));
-                $info['data'] = $data[2].'-'.$data[1].'-'.$data[0];
+               // $data = explode('/', $this->input->post('data'));
+                $info['data'] = $this->input->post('data');
 		$info['classificacao'] = $this->input->post('classificacao');
         	$info['sinopse'] = $this->input->post('sinopse');
 	
@@ -154,8 +154,8 @@ class Filmes extends CI_Controller{
 			$config['maintain_ratio'] = false; //Redimensiona a imagem sem desconfiguralá-la;
 			$config['quality'] = "100%";
 			
-			$config['width'] = 200;
-			$config['height'] = 200;
+			$config['width'] = 100;
+			$config['height'] = 100;
 			
 			//Redimena a imagem
 			$this->load->library('image_lib', $config);

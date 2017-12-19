@@ -11,13 +11,15 @@
             <div class="col-sm-8">
                 <h3><small>Diretor: <?= $filme[0]->diretor;?></small>
                     <br><small>Elenco: <?= $filme[0]->elenco;?></small>
-                    <br><small>Data de Lançamento: <?= date('d/m/Y', strtotime($filme[0]->data)); ?></small>
+                    <br><small>Ano de Lançamento: <?= $filme[0]->data; ?></small>
                     <br><small>Classificação: <?= $filme[0]->classificacao;?></small>
                     <br><small>Sinopse: </small></h3>
                 <p>
                     <?= nl2br($filme[0]->sinopse); ?>
                 </p>
             </div>
+             <a href="<?= base_url('filmes/')?>" class="btn btn-danger">Voltar</a>
+                    
         </div>
     </div>
 </section>

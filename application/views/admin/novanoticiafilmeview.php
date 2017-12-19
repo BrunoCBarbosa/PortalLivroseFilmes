@@ -15,8 +15,8 @@
             <input type="text" class="form-control" name="elenco">
          </div>
         <div class="col-sm-4">
-            <label for="data">Data de Lançamento</label>
-            <input type="text" class="form-control" placeholder="__/__/____" name="data">
+            <label for="data">Ano de Lançamento</label>
+            <input type="text" class="form-control" name="data">
         </div>  
         <div class="col-sm-4">
             <label for="classificacao">Classificação</label>

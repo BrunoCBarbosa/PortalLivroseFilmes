@@ -14,7 +14,7 @@
             </div>
        <?php } ?>
 <div class="bs-example" data-example-id="striped-table">
-    <table class="table table-striped" id="dataTable">
+    <table class="table table-striped ordena" id="dataTable">
         <thead>
             <tr>
                 <th>Código</th>

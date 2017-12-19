@@ -1,24 +1,28 @@
 <section>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h1 class="page-header">Filmes</h1>
-            </div>
-            <?php foreach ($filmes as $row): ?>
-            <div class="col-sm-3">
-                <div class="caixa-noticia">
-                    <div class="row">
-                         <a href="<?= base_url('filmes/' . $row->codigo) ?>">
-                        <div class="col-sm-12">
-                            <img class="img-responsive" src="<?= base_url('imagens/filmes/'.$row->imagem)?>"/>
-                        </div>   
-                        <div class="col-sm-12">
-                            <h4 class="titulo_noticia"><?= $row->titulo;?></h4>
+        <h1 class="page-header">Filmes</h1>
+        <table class="table table-striped ordena" id="table">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Imagem</th>
+                    <th>Título</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($filmes as $row):?>
+                <tr>
+                    <td scope="row"><?= $row->codigo?></td>
+                    <td><img class="img-responsive" src="<?= base_url('imagens/filmes/'.$row->imagem)?>"></td>
+                    <td><?= $row->titulo;?></td>
+                    <td>
+                        <div style="float:rigt">
+                            <a href="<?= base_url('filmes/'.$row->codigo)?>" class="btn btn-success">Ver</a>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <?php endforeach;?>
-        </div>
+                    </td>
+                </tr>
+                <?php endforeach;?>
+            </tbody>
+        </table>
     </div>
 </section>

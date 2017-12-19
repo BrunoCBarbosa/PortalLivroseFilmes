@@ -1,4 +1,6 @@
-<h1>Atualizar Livro </h1>
+<?php foreach ($livro as $row):?>
+<h1>Atualizar Livro - <?= $row->titulo?></h1>
+<?php endforeach;?>
 <form action="<?= base_url('admin/livros/salvar_update')?>" method="post" enctype="multipart/form-data">
     <input type="hidden" name="codigo" value="<?= $livro[0]->codigo?>">
     <div class="row form-group">
@@ -16,8 +18,8 @@
             <input type="text" class="form-control" name="editora" value="<?= $livro[0]->editora;?>">
          </div>
         <div class="col-sm-4">
-            <label for="data">Data da Publicação</label>
-            <input type="text" class="form-control" placeholder="__/__/____" name="data" value="<?= date('d/m/y',strtotime($livro[0]->data));?>">
+            <label for="data">Ano da Publicação</label>
+            <input type="text" class="form-control"  name="data" value="<?= $livro[0]->data;?>">
         </div>  
         <div class="col-sm-4">
             <label for="classificacao">Classificação</label>

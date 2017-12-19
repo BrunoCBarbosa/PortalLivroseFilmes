@@ -9,6 +9,14 @@
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="../../../../assets/js/vendor/popper.min.js"></script>
     <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="<?= base_url()?>dist/js/jquery.js"></script>
+     <script src="<?= base_url()?>dist/js/tablesorter.js"></script>
+     <script src="<?= base_url()?>dist/js/tabela.js"></script>
+     <script>
+        .ordena th{
+            cursor:pointer;
+    } 
+     </script>
     <script>
 $(document).ready(function () {
    // $('#dataTable').DataTable();

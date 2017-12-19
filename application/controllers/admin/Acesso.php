@@ -67,6 +67,7 @@ class Acesso extends CI_Controller{
         $this->load->view('admin/includes/rodape');
     }
     
+    
     public function msg($alert){
         $str = '';
         if($alert == 1){

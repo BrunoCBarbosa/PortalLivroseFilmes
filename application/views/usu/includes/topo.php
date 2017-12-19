@@ -9,6 +9,12 @@
 
     <title>Portal Livros e Filmes</title>
     
+     <style>
+        .ordena th{
+            cursor:pointer;
+    } 
+     </style>
+    
       <link href="<?=base_url(); ?>dist/css/main.css" rel="stylesheet">
    
     <!-- Bootstrap core CSS -->

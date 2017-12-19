@@ -59,8 +59,7 @@ class Livros extends CI_Controller{
 		$info['autor'] = $this->input->post('autor');
 		//$data['slug_noticia'] = $this->input->post('slug');
 		$info['classificacao'] = $this->input->post('classificacao');
-		$data = explode('/', $this->input->post('data'));
-                $info['data'] = $data[2].'-'.$data[1].'-'.$data[0];
+		$info['data'] = $this->input->post('data');
                 $info['editora'] = $this->input->post('editora');
                 $info['sinopse'] = $this->input->post('sinopse');
 		$info['imagem'] = $this->upload_imagem();
@@ -80,8 +79,7 @@ class Livros extends CI_Controller{
 		$info['titulo'] = $this->input->post('titulo');
 		$info['autor'] = $this->input->post('autor');
 		$info['classificacao'] = $this->input->post('classificacao');
-		$data = explode('/', $this->input->post('data'));
-                $info['data'] = $data[2].'-'.$data[1].'-'.$data[0];
+		$info['data'] = $this->input->post('data');
                 $info['editora'] = $this->input->post('editora');
                 $info['sinopse'] = $this->input->post('sinopse');
 		
@@ -153,8 +151,8 @@ class Livros extends CI_Controller{
 			$config['maintain_ratio'] = false; //Redimensiona a imagem sem desconfiguralá-la;
 			$config['quality'] = "100%";
 			
-			$config['width'] = 200;
-			$config['height'] = 200;
+			$config['width'] = 100;
+			$config['height'] = 100;
 			
 			//Redimena a imagem
 			$this->load->library('image_lib', $config);

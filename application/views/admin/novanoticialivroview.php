@@ -15,8 +15,8 @@
             <input type="text" class="form-control" name="editora">
          </div>
         <div class="col-sm-4">
-            <label for="data">Data da Publicação</label>
-            <input type="text" class="form-control" placeholder="__/__/____" name="data">
+            <label for="data">Ano da Publicação</label>
+            <input type="text" class="form-control"  name="data">
         </div>  
         <div class="col-sm-4">
             <label for="classificacao">Classificação</label>

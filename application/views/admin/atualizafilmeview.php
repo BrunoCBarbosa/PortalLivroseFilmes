@@ -1,4 +1,6 @@
-<h1>Atualizar Filme</h1>
+<?php foreach ($filme as $row):?>
+<h1>Atualizar Filme - <?= $row->titulo?></h1>
+<?php endforeach;?>
 <form action="<?= base_url('admin/filmes/salvar_update')?>" method="post" enctype="multipart/form-data">
     <input type="hidden" name="codigo" value="<?= $filme[0]->codigo?>">
     <div class="row form-group">
@@ -16,8 +18,8 @@
             <input type="text" class="form-control" value="<?= $filme[0]->elenco; ?>" name="elenco">
          </div>
         <div class="col-sm-4">
-            <label for="data">Data de Lançamento</label>
-            <input type="text" class="form-control" placeholder="__/__/____" value="<?= date('d/m/y', strtotime($filme[0]->data));?>" name="data">
+            <label for="data">Ano de Lançamento</label>
+            <input type="text" class="form-control" value="<?= $filme[0]->data;?>" name="data">
         </div>  
         <div class="col-sm-4">
             <label for="classificacao">Classificação</label>
