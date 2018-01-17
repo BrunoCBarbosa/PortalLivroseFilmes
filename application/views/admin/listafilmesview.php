@@ -16,13 +16,14 @@
     <table class="table table-striped ordena" id="dataTable">
         <thead>
             <tr>
+                <div style="float:right">
+                        <a href="<?= base_url('admin/filmes/cadastro')?>" class="btn  btn-info "> Novo </a>
+                    </div>
                 <th>Código</th>
                 <th>Imagem</th>
                 <th>Título do Filme</th>
                 <th>
-                    <div style="float:right">
-                        <a href="<?= base_url('admin/filmes/cadastro')?>" class="btn  btn-info "> Novo </a>
-                    </div>
+                    
                 </th>
             </tr>
         </thead>
